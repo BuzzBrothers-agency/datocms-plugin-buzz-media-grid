@@ -30,8 +30,8 @@ connect({
   manualFieldExtensions(ctx: IntentCtx) {
     return [
       {
-        id: 'mediaGrid',
-        name: 'Media Grid',
+        id: 'buzzMediaGrid',
+        name: 'Buzz Media Grid',
         type: 'editor',
         fieldTypes: ['json'],
         configurable: true
@@ -40,7 +40,7 @@ connect({
   },
   renderFieldAddon: (
     fieldExtensionId: string,
-    ctx: RenderFieldExtensionCtx
+    ctx: RenderFieldExtensnpmionCtx
   ) => {
     // switch (fieldExtensionId) {
     //   case 'presets':
@@ -49,7 +49,7 @@ connect({
   },
   renderFieldExtension(fieldExtensionId: string, ctx: RenderFieldExtensionCtx) {
     switch (fieldExtensionId) {
-      case 'mediaGrid':
+      case 'buzzMediaGrid':
         return render(<MediaGridField ctx={ctx} />)
     }
   },
@@ -58,7 +58,7 @@ connect({
     ctx: RenderManualFieldExtensionConfigScreenCtx
   ) {
     switch (fieldExtensionId) {
-      case 'mediaGrid':
+      case 'buzzMediaGrid':
         return render(<MediaGridConfigScreen ctx={ctx} />)
     }
   },

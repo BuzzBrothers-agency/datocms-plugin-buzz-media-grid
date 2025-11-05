@@ -18,7 +18,9 @@ export default function MediaGridConfigScreen({ ctx }) {
   )
   const parameters = (ctx.plugin.attributes.parameters ?? {}) as TConfig
   const defaultLayoutsOptions = parameters.layoutsOptions ?? {}
-  const layoutsOptions = (parameters.layouts ?? []).map((layout) => ({
+  const layoutsOptions = (
+    parameters.layouts ?? MEDIA_GRID_DEFAULTS.layouts
+  ).map((layout) => ({
     label: upperFirst(layout),
     value: layout
   }))
@@ -70,7 +72,9 @@ export default function MediaGridConfigScreen({ ctx }) {
           label="Columns count"
           defaultValue={6}
           value={
-            formValues[layout.value]?.columns ?? MEDIA_GRID_DEFAULTS.columns
+            formValues[layout.value]?.columns ??
+            parameters.layoutsSettings[layout.value]?.columns ??
+            MEDIA_GRID_DEFAULTS.columns
           }
           onChange={(newValue) => {
             update(layout.value, 'columns', parseInt(newValue))
@@ -81,7 +85,11 @@ export default function MediaGridConfigScreen({ ctx }) {
           name="columns"
           type="number"
           label="Rows count"
-          value={formValues[layout.value]?.rows ?? MEDIA_GRID_DEFAULTS.rows}
+          value={
+            formValues[layout.value]?.rows ??
+            parameters.layoutsSettings[layout.value]?.rows ??
+            MEDIA_GRID_DEFAULTS.rows
+          }
           onChange={(newValue) => {
             update(layout.value, 'rows', parseInt(newValue))
           }}

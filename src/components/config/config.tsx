@@ -8,9 +8,9 @@ import { type TConfig } from './config.type'
 let updateTimeout
 
 export const MEDIA_GRID_DEFAULTS = {
-  layouts: ['desktop', 'mobile'],
-  columns: 6,
-  rows: 6,
+  layouts: ['desktop'],
+  columns: 12,
+  rows: 12,
   allowCustomizeGrid: true
 }
 
