@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.16
+
+- Change background from white to checker texture in MediaGrid
+  - [Pull request](https://github.com/BuzzBrothers-agency/datocms-plugin-buzz-media-grid/pull/1) by [Mathieu MARTIN](https://github.com/MathieuMart)
+
 ## 0.0.15
 
 - Add imgix parameters to resize image in order to display the best size in grid
