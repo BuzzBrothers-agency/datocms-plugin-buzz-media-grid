@@ -105,6 +105,14 @@ export default function MediaGridField({ ctx }) {
               }}
               selectContent={async () => {
                 const upload = await ctx.selectUpload({ multiple: false })
+
+                const fpX =
+                  upload.attributes.default_field_metadata?.[ctx.locale]
+                    ?.focal_point?.x
+                const fpY =
+                  upload.attributes.default_field_metadata?.[ctx.locale]
+                    ?.focal_point?.y
+
                 return {
                   type: upload.attributes.mime_type?.startsWith('video/')
                     ? 'video'
@@ -113,6 +121,10 @@ export default function MediaGridField({ ctx }) {
                   width: upload.attributes.width,
                   height: upload.attributes.height,
                   thumbhash: upload.attributes.thumbhash,
+                  focalPoint: {
+                    x: fpX !== undefined ? fpX : 0.5,
+                    y: fpY !== undefined ? fpY : 0.5
+                  },
                   alt: upload.attributes.default_field_metadata?.[ctx.locale]
                     ?.alt,
                   title:

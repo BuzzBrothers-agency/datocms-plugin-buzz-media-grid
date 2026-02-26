@@ -115,7 +115,8 @@ export default function MediaGridArea({
       {area.content && width && height && area.content.type === 'image' && (
         <img
           className="media-grid-area_image"
-          src={`${area.content.url}?w=${width}&h=${height}&fit=crop`}
+          src={`${area.content.url}?w=${width}&h=${height}&fit=crop&fp-x=${area.content.focalPoint?.x ?? 0.5}&fp-y=${area.content.focalPoint?.y ?? 0.5}`}
+          alt={area.content.alt}
         />
       )}
       {area.content && area.content.type === 'video' && (

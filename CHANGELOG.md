@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.17
+
+- Add support for focal point
+  - It is taken from the selected media at the moment of his selection. Not updated after that
+
 ## 0.0.16
 
 - Change background from white to checker texture in MediaGrid

@@ -19,6 +19,10 @@ export type TMediaGridArea = {
   position: [number, number, number, number]
   content: {
     type: 'video' | 'image'
+    focalPoint?: {
+      x: number
+      y: number
+    }
     url: string
     width?: number
     height?: number
